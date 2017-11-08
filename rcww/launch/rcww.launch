@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- adding file-->
+  <node name="mjpg" pkg="mjpeg_server" type="mjpeg_server" output="screen" />
+
+  <!-- adding launch-->
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+
+</launch>
