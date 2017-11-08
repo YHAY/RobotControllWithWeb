@@ -4,7 +4,7 @@ Before starting, you need to install ROS KINETIC.
 
 If you done, you need to install the launch of usb_cam and mjpeg_server.
 you can install through this 
--> 1. usb_cam : 
+-> 1. usb_cam : https://github.com/ros-drivers/usb_cam.git
    2. mjpeg_server : https://github.com/RobotWebTools/mjpeg_server.git
 
 Then, you can try this system.
