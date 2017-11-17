@@ -1,5 +1,7 @@
 # RobotControllWithWeb
 
+
+[Robot]--------------------------------------------------------------------
 Before starting, you need to install ROS KINETIC.
 
 If you done, you need to install the launch of usb_cam ,mjpeg_server and rosbridge.
@@ -18,3 +20,9 @@ Then, you can try this system.
 ----------------------------------------------------------------------------
 without these, you just run the package "rcww". 
 it means that you just typing on the screen "$ roslaunch rcww rcww.launch"
+
+
+[Server]--------------------------------------------------------------------
+1) cd rcww_webserver
+2) python webServer.py
+then, you can enter through http://localhost:8888
