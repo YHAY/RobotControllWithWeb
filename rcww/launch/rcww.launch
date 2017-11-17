@@ -1,10 +1,15 @@
 <launch>
-
-  <!-- adding file-->
-  <node name="mjpg" pkg="mjpeg_server" type="mjpeg_server" output="screen" />
+  <!-- usb_cam for camera, streaming for mjpeg_server, rosbridge_server for command-->
+  <!-- adding file : 8080-->
+  <node name="mjpg" pkg="mjpeg_server" type="mjpeg_server" output="screen"/>
 
   <!-- adding launch-->
   <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
-  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
-
+  <!--include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"-->
+  <include file="$(find rosbridge_server)/launch/rosbridge_tcp.launch">
+	   <arg name="port" value="9090"/>
+  </include>
+  <!-- output option : log/screen-->
+  <node name="control" pkg="rcww" type="move_controller.py" output="screen" />
+  
 </launch>
