@@ -13,16 +13,15 @@
     return false;
   }//if
   var send = 'command=' + value;
+  //error here, "Failed to load file:///home/haei/Script/rcww_webserver/motor: Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https."
+  //지난 번에는 되었는데 bottle에 뭐가 바뀌었나요? 뭐 때문에 이런지 모르겠어요..
   request.open('POST', '/motor', true);
-  request.setRequestHeader('Content-Type', 'text/html');
-  request.setRequestHeader('Content-Length', send.length);
-  request.setRequestHeader('Connection', 'close');
   request.send(send);
   }//function
 </script>
 </head>
 <body>
-  <img src="stream" width=320 height=240 id="stream" alt="로봇과의 연결이 완료되지 않았습니다. 로봇연결부터 다시 시도하여 주십시오."/>
+  <img src="http://localhost:8888/stream" width=320 height=240 id="stream" alt="disconnected"/>
   <div align="center" style="margin: 0 0 10px 10px">
 	<ul>
            <input type="button" style=font-size:20pt;width:70;height:60; value="&uarr;" onClick="command('GO')">
