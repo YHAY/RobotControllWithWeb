@@ -1,4 +1,5 @@
 <launch>
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
   <!-- usb_cam for camera, streaming for mjpeg_server, rosbridge_server for command-->
   <!-- adding file : 8080-->
   <node name="mjpg" pkg="mjpeg_server" type="mjpeg_server" output="screen"/>

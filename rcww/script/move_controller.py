@@ -197,17 +197,6 @@ class Move_controller():
 
         self.__angle = a
         self.__have_odom = True
-        
-    #로봇기준의 범위 내에 장애물이 존재하는지 확인(__Scan_handler에서 발생)
-    def is_ac(self, msg):
-      range_len = len(msg.ranges[181:325])
-      range_ahead = msg.ranges[181:325]
-
-      for i in range(0,range_len-1) :
-        if 0.15 <= round(range_ahead[i],1) <=0.45 : 
-          if (245-range_len) <= i <= (315-range_len) :
-              return True
-
           
     #움직임이 제어가 되지 않을 때 발생
     def __exit_if_movement_disabled(self):
@@ -226,22 +215,22 @@ class Move_controller():
     #로봇이 앞으로 가기위해 명령전달, 약 1m이동
     def go_forward(self):
         self.move_distance(0.1)#forward
-        self.wait(0.6)
+        self.wait(0.1)
 
     #로봇이 뒤로 가기위해 명령전달, 약 1m이동
     def go_backward(self):
         self.move_distance(-0.1)#backward
-        self.wait(0.6)
+        self.wait(0.1)
 
     #로봇이 옆으로(우) 돌기위해 명령전달, 약 45도 회전
     def turn_right(self):
         self.turn_angle(0.79)
-        self.wait(0.6)
+        self.wait(0.1)
 
     #로봇이 옆으로(좌) 돌기위해 명령전달, 약 45도 회전
     def turn_left(self):
         self.turn_angle(-0.79)
-        self.wait(0.6)
+        self.wait(0.1)
 
 if __name__ == '__main__':
     rospy.init_node('sign',log_level=rospy.INFO)
